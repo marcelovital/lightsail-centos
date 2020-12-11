@@ -8,7 +8,7 @@
 # USAGE: In AWS Lightsail, create an instance and copy-paste this script into the "Launch Script" box.
 #
 # If you wish to follow the script's progress, ssh into the server after the instance is up and "tail -f /home/centos/centosstream-deploy.log".
-# The full script is expected to run in about 15 minutes on a 1vCPU-1GbRAM ($5) instance.
+# The full script is expected to run in about 15 minutes on a 1vCPU-1GbRAM ($5) instance. 
 # 
 # The CentOS 7 to CentOS 8 part is based in the guide from CentLinux at https://www.centlinux.com/2020/01/how-to-upgrade-centos-7-to-8-server.html
 # The CentOS 8 to CentOS Stream 8 is based in the original instructions in https://www.centos.org/centos-stream/ 
