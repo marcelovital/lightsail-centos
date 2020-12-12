@@ -7,7 +7,7 @@ These scripts are intended to take a default CentOS 7 image (tested on "7 1901-0
 - In AWS Lightsail, create an instance and copy-paste this script into the "Launch Script" box
 - If you wish to follow the script's progress, ssh into the server after the instance is up and "tail -f /home/centos/centos-deploy.log"
 
-**The full script is expected to run in about 15 minutes on a 1vCPU-1GbRAM ($5) instance.**
+**The full scripts are expected to run in about 6 minutes (CentOS7) to 15 minutes (CentOSStream8) on a 1vCPU-1GbRAM ($5) instance.**
 
 ## Credits:
 
