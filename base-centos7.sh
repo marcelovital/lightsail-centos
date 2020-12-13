@@ -30,6 +30,7 @@ echo "Install useful tools" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 
 echo "============================================================" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' >> /home/centos/centos-deploy.log
 
 yum install -y yum-utils rpmconf podman buildah skopeo vim git wget ansible bash-completion bash-completion-extras setroubleshoot setools docker docker-compose | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' >> /home/centos/centos-deploy.log
+systemctl enable docker | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' >> /home/centos/centos-deploy.log
 yum upgrade -y | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' >> /home/centos/centos-deploy.log
 
 echo "============================================================" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' >> /home/centos/centos-deploy.log
