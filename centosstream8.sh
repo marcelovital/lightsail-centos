@@ -20,11 +20,10 @@ dnf update -y | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /h
 echo "===== Upgrading CentOS 7 to CentOS 8 =====" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 dnf install -y http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/{centos-linux-release-8.3-1.2011.el8.noarch.rpm,centos-gpg-keys-8-2.el8.noarch.rpm,centos-linux-repos-8-2.el8.noarch.rpm} | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 dnf update -y epel-release | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
-dnf remove -y bash-completion-extras | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 rpm -e `rpm -q kernel` | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
-rpm -e --nodeps sysvinit-tools pycairo python3-3.6.8 python2-jmespath | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
+rpm -e --nodeps sysvinit-tools iptables | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 dnf -y --releasever=8 --allowerasing --setopt=deltarpm=false distro-sync | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
-dnf install -y kernel-core | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
+dnf install -y kernel-core --allowerasing | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 dnf -y groupupdate "Core" "Minimal Install" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 
 echo "===== Switch CentOS 8 to CentOS Stream 8 =====" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' >> /home/centos/centos-deploy.log
@@ -36,7 +35,7 @@ echo "===== Install Tools =====" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]")
 dnf install -y git vim wget ansible bash-completion setroubleshoot setools python3 python3-pip | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 
 # ===== UNCOMMENT THE LINES BELOW IF YOU WANT TO INSTALL PODMAN 1.6 =====
-# echo "===== Update Kernel =====" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
+# echo "===== Install Podman 1.6 =====" | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 # dnf install -y podman buildah skopeo | gawk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a /home/centos/centos-deploy.log
 
 # ===== UNCOMMENT THE LINES BELOW IF YOU WANT TO INSTALL PODMAN 2.2 =====
